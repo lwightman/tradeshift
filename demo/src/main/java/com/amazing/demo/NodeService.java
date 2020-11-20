@@ -37,7 +37,6 @@ public class NodeService {
     }
 
     public Optional<Node> reparent(String nodeId, String newParentId) {
-        // TODO: not sure this really needs to return anything
         Optional<Node> node = mNodeRepository.findById(Long.parseLong(nodeId));
         if (node.isPresent()) {
             Node tempNode = node.get();
