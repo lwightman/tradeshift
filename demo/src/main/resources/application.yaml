@@ -1,0 +1,17 @@
+# All environments
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:postgresql://demo-postgres:5432/amazingdemo
+    username: demo
+    password: demo
+    jpa:
+      showSql: true
+    hibernate:
+      ddlAuto: none
+
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+
+http:
+  port: 8080

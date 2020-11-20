@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 99-1
+      author: lisa
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: nodePK
+                  name: id
+                  type: BIGINT
+              - column:
+                  name: name
+                  type: VARCHAR(256)
+              - column:
+                  name: parent_id
+                  type: BIGINT
+              - column:
+                  name: root
+                  type: BOOLEAN
+              - column:
+                  constraints:
+                    nullable: false
+                  name: height
+                  type: BIGINT
+            tableName: node

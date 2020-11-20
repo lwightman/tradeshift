@@ -1,0 +1,32 @@
+version: "3.7"
+services:
+  demo-postgres:
+    build: ./demoDB
+    image: "postgres:11.5-alpine"
+    container_name: demo-postgres
+    volumes:
+      - demo-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: amazingdemo
+    ports:
+      - 5432:5432
+
+  demo-server:
+    container_name: demo-server
+    build: ./demo
+    environment:
+      - DB_SERVER=demo-postgres
+      - POSTGRES_USER=demo
+      - POSTGRES_PASSWORD=demo
+      - POSTGRES_DB=amazingdemo
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    links:
+      - demo-postgres
+
+volumes:
+  demo-data:

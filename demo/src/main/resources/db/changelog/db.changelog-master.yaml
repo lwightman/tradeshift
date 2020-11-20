@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: node/changelog-node-11182020.yaml
+      relativeToChangelogFile: true
